@@ -1,0 +1,19 @@
+{
+  "name": "lab3",
+  "productName": "lab3",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "wkj",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "log4js": "^6.3.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "electron": "11.1.0"
+  }
+}

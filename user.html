@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="./lib/element-ui.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-table :data="tableData" style="width: 100%">
+            <el-table-column prop="username" label="用户名" width="180">
+            </el-table-column>
+            <el-table-column prop="currency" label="余额" width="180">
+            </el-table-column>
+        </el-table>
+        <el-row gutter="24">
+            <el-col :span="5">
+                <el-button type="primary" @click="dialogFormVisible = true">存款/取款</el-button>
+
+                <el-dialog title="存款/取款" :visible.sync="dialogFormVisible">
+                    <el-form :model="form">
+                        <el-form-item label="数额" :label-width="formLabelWidth">
+                            <el-input v-model="form.money" autocomplete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="操作" :label-width="formLabelWidth">
+                            <el-select v-model="form.choice" placeholder="操作">
+                                <el-option label="存款" value="deposit"></el-option>
+                                <el-option label="取款" value="withdraw"></el-option>
+                            </el-select>
+                        </el-form-item>
+                    </el-form>
+                    <div slot="footer" class="dialog-footer">
+                        <el-button @click="dialogFormVisible = false">取消</el-button>
+                        <el-button type="primary" @click.prevent="submit_form">确定</el-button>
+                    </div>
+                </el-dialog>
+            </el-col>
+            <el-button type="primary" @click="dialogVisible = true">注销身份</el-button>
+            <el-dialog id="action" title="确认注销本用户？" :visible="dialogVisible" width="30%" :before-close="handleClose">
+                <span slot="footer" class="dialog-footer">
+                    <el-button @click="dialogVisible = false">取消</el-button>
+                    <el-button type="primary" @click.prevent="submit">确认</el-button>
+                </span>
+            </el-dialog>
+        </el-row>
+    </div>
+
+</body>
+
+<!-- import Vue before Element -->
+<script src="./lib/vue.js"></script>
+<!-- import JavaScript -->
+<script src="./lib/element-ui.js"></script>
+<script src="js/user.js"></script>
+
+</html>

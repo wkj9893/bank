@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理员</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="./lib/element-ui.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-table :data="tableData" style="width: 100%">
+            <el-table-column prop="id" label="id" width="180">
+            </el-table-column>
+            <el-table-column prop="username" label="用户名" width="180">
+            </el-table-column>
+            <el-table-column prop="currency" label="余额" width="180">
+            </el-table-column>
+            <el-table-column prop="valid" label="有效位" width="180">
+            </el-table-column>
+        </el-table>
+
+        <el-dialog id="action" title="请求操作" :visible="dialogVisible" width="30%" :before-close="handleClose">
+            <span>{{ msg }}</span>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">不同意</el-button>
+                <el-button type="primary" @click.prevent="submit">同意</el-button>
+            </span>
+        </el-dialog>
+    </div>
+
+
+
+
+</body>
+
+<!-- import Vue before Element -->
+<script src="./lib/vue.js"></script>
+<!-- import JavaScript -->
+<script src="./lib/element-ui.js"></script>
+<script src="js/admin.js"></script>
+
+</html>
